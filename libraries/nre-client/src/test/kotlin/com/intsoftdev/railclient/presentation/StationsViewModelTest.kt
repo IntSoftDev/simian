@@ -1,22 +1,19 @@
-package com.intsoftdev.railsdk.presentation
+package com.intsoftdev.railclient.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.intsoftdev.railsdk.NreKoinTest
-import com.intsoftdev.railsdk.RxImmediateSchedulerRule
-import com.intsoftdev.railsdk.data.StationModel
-import com.intsoftdev.railsdk.di.Di
-import com.intsoftdev.railsdk.domain.repository.interactor.GetStationsUseCase
+import com.intsoftdev.railclient.NreKoinTest
+import com.intsoftdev.railclient.RxImmediateSchedulerRule
+import com.intsoftdev.railclient.data.StationModel
+import com.intsoftdev.railclient.di.Di
+import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.TestScheduler
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.koin.dsl.module
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 import kotlin.test.assertEquals
 
 class StationsViewModelTest : NreKoinTest() {

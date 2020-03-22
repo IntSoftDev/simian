@@ -1,4 +1,4 @@
-package com.intsoftdev.railsdk.di
+package com.intsoftdev.railclient.di
 
 import android.content.Context
 import org.koin.android.ext.koin.androidContext

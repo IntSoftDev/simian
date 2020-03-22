@@ -1,6 +1,6 @@
-package com.intsoftdev.railsdk.domain.repository
+package com.intsoftdev.railclient.domain.repository
 
-import com.intsoftdev.railsdk.data.StationModel
+import com.intsoftdev.railclient.data.StationModel
 import io.reactivex.Observable
 
 interface StationsRepository {

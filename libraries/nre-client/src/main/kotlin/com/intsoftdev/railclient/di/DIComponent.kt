@@ -1,4 +1,4 @@
-package com.intsoftdev.railsdk.di
+package com.intsoftdev.railclient.di
 
 import org.koin.core.Koin
 import org.koin.core.KoinComponent

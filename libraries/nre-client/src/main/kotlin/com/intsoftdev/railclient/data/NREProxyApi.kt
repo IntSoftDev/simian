@@ -1,4 +1,4 @@
-package com.intsoftdev.railsdk.data
+package com.intsoftdev.railclient.data
 
 import io.reactivex.Observable
 import retrofit2.http.GET

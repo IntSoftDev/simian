@@ -1,4 +1,4 @@
-package com.intsoftdev.railsdk.data
+package com.intsoftdev.railclient.data
 
 data class StationModel(val stationName: String,
                         val crsCode: String,
