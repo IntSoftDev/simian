@@ -1,8 +1,8 @@
-package com.intsoftdev.railsdk
+package com.intsoftdev.railclient
 
 import android.app.Application
-import com.intsoftdev.railsdk.di.DIComponent
-import com.intsoftdev.railsdk.di.Di
+import com.intsoftdev.railclient.di.DIComponent
+import com.intsoftdev.railclient.di.Di
 
 class NRESDKInitialiser(private val application: Application) : DIComponent {
     fun initialise() {

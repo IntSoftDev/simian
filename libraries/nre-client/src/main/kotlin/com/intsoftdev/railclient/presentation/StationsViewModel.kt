@@ -1,10 +1,10 @@
-package com.intsoftdev.railsdk.presentation
+package com.intsoftdev.railclient.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.intsoftdev.railsdk.data.StationModel
-import com.intsoftdev.railsdk.di.DIComponent
-import com.intsoftdev.railsdk.domain.repository.interactor.GetStationsUseCase
+import com.intsoftdev.railclient.data.StationModel
+import com.intsoftdev.railclient.di.DIComponent
+import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

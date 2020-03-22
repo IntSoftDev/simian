@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.intsoftdev.railsdk.data.StationModel
-import com.intsoftdev.railsdk.presentation.StationsViewModel
+import com.intsoftdev.railclient.data.StationModel
+import com.intsoftdev.railclient.presentation.StationsViewModel
 import kotlinx.android.synthetic.main.fragment_stations.*
 import org.koin.android.viewmodel.ext.android.viewModel
 

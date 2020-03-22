@@ -1,9 +1,7 @@
-package com.intsoftdev.railsdk
+package com.intsoftdev.railclient
 
 import android.content.Context
-import com.intsoftdev.railsdk.di.Di
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.mock
+import com.intsoftdev.railclient.di.Di
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.After
 import org.koin.test.KoinTest
