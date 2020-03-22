@@ -1,8 +1,11 @@
 
 ext {
 
+    kotlinVersion = '1.3.61'
+
     // UI
     coreKtxVersion = '1.2.0'
+    recyclerViewVersion = '1.1.0-rc01'
     appCompatVersion = '1.1.0'
     materialVersion = '1.0.0'
     constraintLayoutVersion = '1.1.3'
@@ -26,10 +29,18 @@ ext {
     gson =  "2.8.5"
     gsonConverter = "2.3.0"
 
+    httpLoggingVersion = "4.4.0"
+
     // test
     junitVersion = '4.13'
+    mockitoKotlinVersion = '2.2.0'
+    mockitoVersion = '3.2.4'
+    archCoreTestingVersion = '1.1.1'
+    archNavigationTestVersion = '1.0.0-alpha06'
+    mockkVersion = '1.9.3'
 
     kotlinlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     corektx = "androidx.core:core-ktx:$coreKtxVersion"
     appcompat = "androidx.appcompat:appcompat:$appCompatVersion"
     material = "com.google.android.material:material:$materialVersion"
@@ -37,12 +48,15 @@ ext {
     ktx = "androidx.navigation:navigation-fragment-ktx:$fragmentKtxVersion"
     nav = "androidx.navigation:navigation-ui-ktx:$navKtxVersion"
 
-    retrofitLib = "com.squareup.retrofit2:retrofit:$retrofit"
-    okHttpLib             = "com.squareup.okhttp3:okhttp:$okHttp"
-
+    // di
     koinLib               = "org.koin:koin-android:$koin"
     koinViewModel         = "org.koin:koin-android-viewmodel:$koin"
+    koinScope             = "org.koin:koin-androidx-scope:$koin"
+    koinTest              = "org.koin:koin-test:$koin"
 
+    // network libraries
+    retrofitLib = "com.squareup.retrofit2:retrofit:$retrofit"
+    okHttpLib             = "com.squareup.okhttp3:okhttp:$okHttp"
     rxJavaLib             = "io.reactivex.rxjava2:rxjava:$rxjava"
     rxJavaAdapter         = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     rxAndroidLib          = "io.reactivex.rxjava2:rxandroid:$rxandroid"
@@ -52,5 +66,17 @@ ext {
     gsonLib               = "com.google.code.gson:gson:$gson"
     gsonConverterLib      = "com.squareup.retrofit2:converter-gson:$gsonConverter"
 
+    retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:$retrofit"
+    retrofitRxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$httpLoggingVersion"
+
+    // testing libraries
     testjunit = "junit:junit:$junitVersion"
+
+    mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+    mockitoInline = "org.mockito:mockito-inline:$mockitoVersion"
+    archCore = "android.arch.core:core-testing:$archCoreTestingVersion"
+    navigationTesting = "android.arch.navigation:navigation-testing-ktx:$archNavigationTestVersion"
+    mockkTest = "io.mockk:mockk:$mockkVersion"
+    kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
 }
