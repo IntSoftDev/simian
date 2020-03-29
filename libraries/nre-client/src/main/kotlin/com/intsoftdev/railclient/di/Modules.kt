@@ -1,11 +1,14 @@
 package com.intsoftdev.railclient.di
 
 
+import android.content.Context
 import com.intsoftdev.railclient.BuildConfig
 import com.intsoftdev.railclient.data.NREProxyApi
 import com.intsoftdev.railclient.data.StationsRepositoryImpl
+import com.intsoftdev.railclient.data.StatusCodeInterceptor
 import com.intsoftdev.railclient.domain.repository.StationsRepository
 import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -16,6 +19,7 @@ import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "http://10.0.2.2:8080/"
 private const val DEFAULT_TIMEOUT = 15L
+private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
 
 val domainModule = module {
     factory { GetStationsUseCase(stationsRepository = get()) }
@@ -39,6 +43,8 @@ val dataModule = module {
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .cache(Cache(get<Context>().cacheDir, CACHE_SIZE_BYTES))
+                .addInterceptor(StatusCodeInterceptor())
                 .addInterceptor(HttpLoggingInterceptor()
                         .apply {
                             level = if (BuildConfig.DEBUG)

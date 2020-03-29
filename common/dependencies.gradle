@@ -11,6 +11,7 @@ ext {
     constraintLayoutVersion = '1.1.3'
     fragmentKtxVersion = '2.1.0'
     navKtxVersion = '2.1.0'
+    swipeLayoutVersion = '1.0.0'
 
     // network
     retrofit = "2.7.1"
@@ -47,6 +48,7 @@ ext {
     constraint = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     ktx = "androidx.navigation:navigation-fragment-ktx:$fragmentKtxVersion"
     nav = "androidx.navigation:navigation-ui-ktx:$navKtxVersion"
+    swipe = "androidx.swiperefreshlayout:swiperefreshlayout:$swipeLayoutVersion"
 
     // di
     koinLib               = "org.koin:koin-android:$koin"

@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface NREProxyApi {
 
-    @GET("nre")
+    @GET("crslocations")
     fun getAllStations(): Observable<List<StationModel>>
 }

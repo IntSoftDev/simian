@@ -36,12 +36,20 @@ class StationsFragment : Fragment() {
         stationsViewModel.stationLiveData.observe(this,
                 Observer<List<StationModel>> { it ->
                     Log.d("get all stations", "size " + it.size)
+                    swiperefresh_items.isRefreshing = false
                     handleResponse(it)
                 })
 
         stationsViewModel.errorStateLiveData.observe(this,
-                Observer { it -> Log.e("get all stations ", "error " + it) })
+                Observer { it ->
+                    Log.e("get all stations ", "error " + it)
+                    swiperefresh_items.isRefreshing = false
+                })
 
+        getItems()
+    }
+
+    private fun getItems() {
         stationsViewModel.getAllStations()
     }
 
@@ -52,5 +60,9 @@ class StationsFragment : Fragment() {
     private fun initRecyclerView() {
         stationsRecyclerView.layoutManager = LinearLayoutManager(context)
         stationsRecyclerView.adapter = stationAdapter
+
+        swiperefresh_items.setOnRefreshListener {
+            getItems()
+        }
     }
 }
