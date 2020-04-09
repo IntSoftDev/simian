@@ -2,6 +2,7 @@ package com.intsoftdev.railclient.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.intsoftdev.railclient.api.NREStationsSDK
 import com.intsoftdev.railclient.data.StationModel
 import com.intsoftdev.railclient.di.DIComponent
 import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
@@ -12,7 +13,7 @@ import org.koin.core.get
 
 class StationsViewModel() : ViewModel(), DIComponent {
 
-    private val getStationsUseCase by lazy { get<GetStationsUseCase>() }
+    private val nreStationsSDK by lazy { get<NREStationsSDK>() }
     val stationLiveData = MutableLiveData<List<StationModel>>()
     val errorStateLiveData = MutableLiveData<Boolean>()
     private var compositeDisposable = CompositeDisposable()
@@ -21,7 +22,7 @@ class StationsViewModel() : ViewModel(), DIComponent {
 
     fun getAllStations() {
         compositeDisposable.clear()
-        getStationsUseCase.getAllStations()
+        nreStationsSDK.getAllStations()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ stations ->
