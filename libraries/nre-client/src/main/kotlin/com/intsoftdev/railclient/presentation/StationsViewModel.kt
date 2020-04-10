@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.koin.core.get
 
-class StationsViewModel() : ViewModel(), DIComponent {
+internal class StationsViewModel() : ViewModel(), DIComponent {
 
     private val nreStationsSDK by lazy { get<NREStationsSDK>() }
     val stationLiveData = MutableLiveData<List<StationModel>>()
