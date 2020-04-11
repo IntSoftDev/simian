@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.intsoftdev.railclient.data.StationModel
-import com.intsoftdev.railclient.presentation.StationsViewModel
+import com.intsoftdev.nreclient.domain.StationModel
 import kotlinx.android.synthetic.main.fragment_stations.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -32,7 +32,6 @@ class StationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-
         stationsViewModel.stationLiveData.observe(this,
                 Observer<List<StationModel>> { it ->
                     Log.d("get all stations", "size " + it.size)

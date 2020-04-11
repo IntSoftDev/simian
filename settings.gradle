@@ -1,0 +1,5 @@
+include ':nre-client:domain'
+include ':nre-client:data'
+include ':nre-client'
+include ':app'
+rootProject.name = "NRE"
