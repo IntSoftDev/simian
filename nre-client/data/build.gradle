@@ -15,7 +15,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':nre-client:domain')
+    implementation project(':domain')
     implementation kotlinlib
     implementation corektx
     implementation appcompat

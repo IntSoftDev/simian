@@ -5,5 +5,4 @@ import org.koin.dsl.module
 
 val domainModule = module {
     factory { GetStationsUseCase(stationsRepository = get()) }
-    //  factory { NREStationsSDK() }
 }
