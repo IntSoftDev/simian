@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.intsoftdev.railclient.data.StationModel
+import com.intsoftdev.nreclient.domain.StationModel
 import kotlinx.android.synthetic.main.station_row_layout.view.*
 import kotlin.properties.Delegates
 

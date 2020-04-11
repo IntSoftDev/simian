@@ -2,7 +2,8 @@ package com.intsoftdev.nre
 
 import android.app.Application
 import com.intsoftdev.nre.di.viewModelModule
-import com.intsoftdev.railclient.NRESDKInitialiser
+import com.intsoftdev.railclient.StationsClientInitializer
+import com.intsoftdev.railclient.di.sdkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -12,10 +13,8 @@ class NREApplication : Application() {
         startKoin {
             // declare used Android context
             androidContext(this@NREApplication)
-            // declare modules
-            modules(listOf(
-                    viewModelModule))
+            modules(listOf(viewModelModule, sdkModule))
         }
-        NRESDKInitialiser(this).initialise()
+        StationsClientInitializer(this).initialise()
     }
 }
