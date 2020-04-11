@@ -7,7 +7,7 @@ import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
 import io.reactivex.Observable
 import org.koin.core.get
 
-class NREStationsSDK : NREStationsAPI, DIComponent {
+class StationsClient : StationsAPI, DIComponent {
 
     private val getStationsUseCase by lazy { get<GetStationsUseCase>() }
 
