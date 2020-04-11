@@ -18,8 +18,8 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':nre-client')
-    implementation project(path: ':nre-client:domain')
+    implementation project(':nre-client')
+    implementation project(':domain')
     implementation kotlinlib
     implementation corektx
     implementation recyclerView
