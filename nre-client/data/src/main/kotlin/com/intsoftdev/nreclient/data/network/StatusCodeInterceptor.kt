@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.data.network
 
 import android.util.Log
 import okhttp3.Interceptor

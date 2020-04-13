@@ -8,7 +8,7 @@ import io.reactivex.Single
 /**
  * Interface defining methods for the caching of Stations.
  */
-internal interface StationsCache {
+interface StationsCache {
 
     /**
      * Clear all theStations from the cache.

@@ -1,6 +1,6 @@
 package com.intsoftdev.nreclient.data.repository.remote
 
-import com.intsoftdev.nreclient.data.StationsProxyService
+import com.intsoftdev.nreclient.data.network.StationsProxyService
 import com.intsoftdev.nreclient.data.mapper.StationModelMapper
 import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Observable

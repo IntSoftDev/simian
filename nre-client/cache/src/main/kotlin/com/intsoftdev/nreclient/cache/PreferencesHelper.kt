@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.cache
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -4,5 +4,5 @@ import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
-    factory { GetStationsUseCase(stationsDataRepository = get()) }
+    factory { GetStationsUseCase(stationsRepository = get()) }
 }

@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data.db
+package com.intsoftdev.nreclient.cache.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

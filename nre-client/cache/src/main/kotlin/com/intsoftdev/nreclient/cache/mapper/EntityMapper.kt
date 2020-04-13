@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data.mapper
+package com.intsoftdev.nreclient.cache.mapper
 
 /**
  * Interface for model mappers. It provides helper methods that facilitate

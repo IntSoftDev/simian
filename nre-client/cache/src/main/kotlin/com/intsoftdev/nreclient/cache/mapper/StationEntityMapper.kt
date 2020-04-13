@@ -1,6 +1,6 @@
-package com.intsoftdev.nreclient.data.mapper
+package com.intsoftdev.nreclient.cache.mapper
 
-import com.intsoftdev.nreclient.data.db.CachedStation
+import com.intsoftdev.nreclient.cache.db.CachedStation
 import com.intsoftdev.nreclient.data.model.StationEntity
 
 /**

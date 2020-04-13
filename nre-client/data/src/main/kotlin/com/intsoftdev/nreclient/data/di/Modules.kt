@@ -1,24 +1,20 @@
 package com.intsoftdev.nreclient.data.di
 
 import android.content.Context
-import androidx.room.Room
 import com.intsoftdev.nreclient.data.*
-import com.intsoftdev.nreclient.data.db.StationConstants
-import com.intsoftdev.nreclient.data.db.StationsDatabase
-import com.intsoftdev.nreclient.data.mapper.StationEntityMapper
 import com.intsoftdev.nreclient.data.mapper.StationModelMapper
-import com.intsoftdev.nreclient.data.repository.cache.StationsCache
+import com.intsoftdev.nreclient.data.network.StationsProxyService
+import com.intsoftdev.nreclient.data.network.StatusCodeInterceptor
+import com.intsoftdev.nreclient.data.repository.StationsDataStoreFactory
+import com.intsoftdev.nreclient.data.repository.StationsRepositoryImpl
 import com.intsoftdev.nreclient.data.repository.cache.StationsCacheDataStore
-import com.intsoftdev.nreclient.data.repository.cache.StationsCacheImpl
 import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteDataStore
 import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepository
 import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepositoryImpl
-import com.intsoftdev.nreclient.domain.StationsDataRepository
+import com.intsoftdev.nreclient.domain.StationsRepository
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.ext.koin.androidApplication
-import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -29,32 +25,9 @@ private const val BASE_URL = "http://10.0.2.2:8080/"
 private const val DEFAULT_TIMEOUT = 15L
 private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
 
-val dbModule = module {
-
-    single {
-        Room.databaseBuilder(
-                androidApplication(),
-                StationsDatabase::class.java,
-                StationConstants.TABLE_NAME).build()
-    }
-
-    factory { get<StationsDatabase>().cachedStationDao() }
-
-    factory { StationEntityMapper() }
+val dataModule = module {
 
     factory { StationModelMapper() }
-
-    factory { PreferencesHelper(androidContext()) }
-
-    factory<StationsCache> {
-        StationsCacheImpl(
-                stationsDatabase = get(),
-                entityMapper = get(),
-                preferencesHelper = get())
-    }
-}
-
-val dataModule = module {
 
     factory<StationsRemoteRepository> {
         StationsRemoteRepositoryImpl(
@@ -62,8 +35,8 @@ val dataModule = module {
                 stationMapper = get())
     }
 
-    factory<StationsDataRepository> {
-        StationsDataRepositoryImpl(
+    factory<StationsRepository> {
+        StationsRepositoryImpl(
                 factory = get(),
                 stationMapper = get())
     }

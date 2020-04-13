@@ -1,5 +1,6 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.data.repository
 
+import com.intsoftdev.nreclient.data.repository.StationsDataStore
 import com.intsoftdev.nreclient.data.repository.cache.StationsCache
 import com.intsoftdev.nreclient.data.repository.cache.StationsCacheDataStore
 import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteDataStore

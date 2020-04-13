@@ -1,15 +1,15 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.data.repository
 
 import com.intsoftdev.nreclient.data.mapper.StationModelMapper
 import com.intsoftdev.nreclient.data.model.StationEntity
 import com.intsoftdev.nreclient.domain.StationModel
-import com.intsoftdev.nreclient.domain.StationsDataRepository
+import com.intsoftdev.nreclient.domain.StationsRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-internal class StationsDataRepositoryImpl(
+internal class StationsRepositoryImpl(
         private val factory: StationsDataStoreFactory,
-        private val stationMapper: StationModelMapper) : StationsDataRepository {
+        private val stationMapper: StationModelMapper) : StationsRepository {
 
     override fun saveAllStations(stations: List<StationModel>): Completable {
         val stationEntities = mutableListOf<StationEntity>()

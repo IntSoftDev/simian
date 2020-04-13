@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.data.repository
 
 import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Completable

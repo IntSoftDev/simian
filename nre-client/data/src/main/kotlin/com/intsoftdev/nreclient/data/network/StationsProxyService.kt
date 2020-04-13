@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.data
+package com.intsoftdev.nreclient.data.network
 
 import com.intsoftdev.nreclient.domain.StationModel
 import io.reactivex.Observable

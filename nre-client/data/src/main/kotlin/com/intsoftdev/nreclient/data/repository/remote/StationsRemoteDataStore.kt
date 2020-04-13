@@ -1,6 +1,6 @@
 package com.intsoftdev.nreclient.data.repository.remote
 
-import com.intsoftdev.nreclient.data.StationsDataStore
+import com.intsoftdev.nreclient.data.repository.StationsDataStore
 import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Completable
 import io.reactivex.Observable

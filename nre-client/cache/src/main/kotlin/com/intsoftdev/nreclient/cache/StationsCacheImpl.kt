@@ -1,9 +1,9 @@
-package com.intsoftdev.nreclient.data.repository.cache
+package com.intsoftdev.nreclient.cache
 
-import com.intsoftdev.nreclient.data.PreferencesHelper
-import com.intsoftdev.nreclient.data.db.StationsDatabase
-import com.intsoftdev.nreclient.data.mapper.StationEntityMapper
+import com.intsoftdev.nreclient.cache.db.StationsDatabase
+import com.intsoftdev.nreclient.cache.mapper.StationEntityMapper
 import com.intsoftdev.nreclient.data.model.StationEntity
+import com.intsoftdev.nreclient.data.repository.cache.StationsCache
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
