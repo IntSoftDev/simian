@@ -1,15 +1,24 @@
 package com.intsoftdev.nreclient.data.di
 
-
 import android.content.Context
-import com.intsoftdev.nreclient.data.BuildConfig
-import com.intsoftdev.nreclient.data.StationsProxyService
-import com.intsoftdev.nreclient.data.StationsRepositoryImpl
-import com.intsoftdev.nreclient.data.StatusCodeInterceptor
-import com.intsoftdev.nreclient.domain.StationsRepository
+import androidx.room.Room
+import com.intsoftdev.nreclient.data.*
+import com.intsoftdev.nreclient.data.db.StationConstants
+import com.intsoftdev.nreclient.data.db.StationsDatabase
+import com.intsoftdev.nreclient.data.mapper.StationEntityMapper
+import com.intsoftdev.nreclient.data.mapper.StationModelMapper
+import com.intsoftdev.nreclient.data.repository.cache.StationsCache
+import com.intsoftdev.nreclient.data.repository.cache.StationsCacheDataStore
+import com.intsoftdev.nreclient.data.repository.cache.StationsCacheImpl
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteDataStore
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepository
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepositoryImpl
+import com.intsoftdev.nreclient.domain.StationsDataRepository
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -20,9 +29,57 @@ private const val BASE_URL = "http://10.0.2.2:8080/"
 private const val DEFAULT_TIMEOUT = 15L
 private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
 
+val dbModule = module {
+
+    single {
+        Room.databaseBuilder(
+                androidApplication(),
+                StationsDatabase::class.java,
+                StationConstants.TABLE_NAME).build()
+    }
+
+    factory { get<StationsDatabase>().cachedStationDao() }
+
+    factory { StationEntityMapper() }
+
+    factory { StationModelMapper() }
+
+    factory { PreferencesHelper(androidContext()) }
+
+    factory<StationsCache> {
+        StationsCacheImpl(
+                stationsDatabase = get(),
+                entityMapper = get(),
+                preferencesHelper = get())
+    }
+}
+
 val dataModule = module {
 
-    factory<StationsRepository> { StationsRepositoryImpl(stationsProxyService = get()) }
+    factory<StationsRemoteRepository> {
+        StationsRemoteRepositoryImpl(
+                stationsProxyService = get(),
+                stationMapper = get())
+    }
+
+    factory<StationsDataRepository> {
+        StationsDataRepositoryImpl(
+                factory = get(),
+                stationMapper = get())
+    }
+
+    factory {
+        StationsRemoteDataStore(stationsRemoteRepository = get())
+    }
+
+    factory { StationsCacheDataStore(stationsCache = get()) }
+
+    factory {
+        StationsDataStoreFactory(
+                stationsCache = get(),
+                stationsCacheDataStore = get(),
+                stationsRemoteDataStore = get())
+    }
 
     factory<StationsProxyService> {
         Retrofit.Builder()

@@ -2,6 +2,7 @@ package com.intsoftdev.railclient.di
 
 import android.content.Context
 import com.intsoftdev.nreclient.data.di.dataModule
+import com.intsoftdev.nreclient.data.di.dbModule
 import com.intsoftdev.nreclient.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.KoinApplication
@@ -13,6 +14,7 @@ internal object Di {
     lateinit var koinApplication: KoinApplication
 
     private val modules = listOf(
+            dbModule,
             domainModule,
             dataModule
     )

@@ -7,7 +7,7 @@ import retrofit2.http.GET
 /**
  * Defines the abstract methods used for interacting with the NREProxyAPI
  */
-interface StationsProxyService {
+internal interface StationsProxyService {
 
     @GET("crslocations")
     fun getAllStations(): Observable<List<StationModel>>
