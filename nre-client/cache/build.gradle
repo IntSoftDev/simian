@@ -12,6 +12,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 }
 
 dependencies {
@@ -39,4 +43,7 @@ dependencies {
     testImplementation mockkTest
     testImplementation kotlinTest
     testImplementation archCore
+    androidTestImplementation androidTestCore
+    androidTestImplementation androidTestJUnit
+    androidTestImplementation androidTestRunner
 }

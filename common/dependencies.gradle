@@ -42,6 +42,8 @@ ext {
     archCoreTestingVersion = '1.1.1'
     archNavigationTestVersion = '1.0.0-alpha06'
     mockkVersion = '1.9.3'
+    testRunnerCore = '1.0.0'
+    testRunnerVersion = '1.1.0'
 
     kotlinlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
@@ -88,4 +90,9 @@ ext {
     navigationTesting = "android.arch.navigation:navigation-testing-ktx:$archNavigationTestVersion"
     mockkTest = "io.mockk:mockk:$mockkVersion"
     kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+
+    androidTestCore = "androidx.test:core:$testRunnerCore"
+    androidTestJUnit = "androidx.test.ext:junit:$testRunnerCore"
+    androidTestRunner = "androidx.test:runner:$testRunnerVersion"
+    androidTestRules = "androidx.test:rules:$testRunnerVersion"
 }
