@@ -1,30 +1,19 @@
-package com.intsoftdev.nreclient.data.repository.cache
+package com.intsoftdev.nreclient.data.repository
 
-import com.intsoftdev.nreclient.data.repository.StationsDataStore
 import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 
-internal class StationsCacheDataStore(
-        private val stationsCache: StationsCache) : StationsDataStore {
+/**
+ * Interface defining methods for the data operations related to Stations.
+ * This is to be implemented by external data source layers, setting the requirements for the
+ * operations that need to be implemented
+ */
+internal interface StationsDataStore {
 
-    override fun saveAllStations(stations: List<StationEntity>): Completable {
-        return stationsCache.saveStations(stations)
-                .doOnComplete {
-                    stationsCache.setLastCacheTime(System.currentTimeMillis())
-                }
-    }
-
-    override fun getAllStations(): Observable<List<StationEntity>> {
-        return stationsCache.getStations()
-    }
-
-    override fun clearStations(): Completable {
-        return stationsCache.clearStations()
-    }
-
-    override fun isCached(): Single<Boolean> {
-        return stationsCache.isCached()
-    }
+    fun saveAllStations(stations: List<StationEntity>): Completable
+    fun getAllStations(): Observable<List<StationEntity>>
+    fun clearStations(): Completable
+    fun isCached(): Single<Boolean>
 }
