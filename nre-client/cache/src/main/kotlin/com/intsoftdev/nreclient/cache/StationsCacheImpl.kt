@@ -17,7 +17,7 @@ internal class StationsCacheImpl(
         private const val EXPIRATION_TIME_MS = (2 * 60 * 1000).toLong()
     }
 
-    override fun clearStations(): Completable {
+    override fun clearAll(): Completable {
         return Completable.defer {
             stationsDatabase.cachedStationDao().clearStations()
             Completable.complete()
@@ -42,7 +42,7 @@ internal class StationsCacheImpl(
         }
     }
 
-    override fun isCached(): Single<Boolean> {
+    override fun isDataCached(): Single<Boolean> {
         return Single.defer {
             Single.just(stationsDatabase.cachedStationDao().getStations().isNotEmpty())
         }
@@ -55,7 +55,7 @@ internal class StationsCacheImpl(
     /**
      * Checks whether the current cached data exceeds the defined [EXPIRATION_TIME_MS] time.
      */
-    override fun isExpired(): Boolean {
+    override fun isCacheExpired(): Boolean {
         val currentTime = System.currentTimeMillis()
         val lastUpdateTime = this.getLastCacheUpdateTimeMillis()
         return currentTime - lastUpdateTime > Companion.EXPIRATION_TIME_MS

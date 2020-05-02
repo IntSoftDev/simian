@@ -9,6 +9,6 @@ import io.reactivex.Observable
  */
 interface StationsRepository {
 
-    fun saveAllStations(stations : List<StationModel>): Completable
     fun getAllStations() : Observable<List<StationModel>>
+    fun saveAllStations(stations : List<StationModel>): Completable
 }

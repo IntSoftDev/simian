@@ -13,7 +13,7 @@ interface StationsCache {
     /**
      * Clear all theStations from the cache.
      */
-    fun clearStations(): Completable
+    fun clearAll(): Completable
 
     /**
      * Save a given list of Stations to the cache.
@@ -30,7 +30,7 @@ interface StationsCache {
      *
      * @return true if the list is cached, otherwise false
      */
-    fun isCached(): Single<Boolean>
+    fun isDataCached(): Single<Boolean>
 
     /**
      * Set a point in time at when the cache was last updated.
@@ -44,5 +44,5 @@ interface StationsCache {
      *
      * @return true if the cache is expired, otherwise false
      */
-    fun isExpired(): Boolean
+    fun isCacheExpired(): Boolean
 }

@@ -1,30 +1,27 @@
 package com.intsoftdev.nreclient.data.repository.cache
 
-import com.intsoftdev.nreclient.data.repository.StationsDataStore
 import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
-internal class StationsCacheDataStore(
-        private val stationsCache: StationsCache) : StationsDataStore {
+internal class StationsCacheDataStoreImpl(
+        private val stationsCache: StationsCache) : StationsCacheDataStore, StationsCache by stationsCache {
 
-    override fun saveAllStations(stations: List<StationEntity>): Completable {
-        return stationsCache.saveStations(stations)
+    override fun getAllStationsFromCache(): Observable<List<StationEntity>> = getStations()
+
+    override fun saveAllStationsToCache(stations: List<StationEntity>): Completable {
+        return saveStations(stations)
                 .doOnComplete {
-                    stationsCache.setLastCacheTime(System.currentTimeMillis())
+                    setLastCacheTime(System.currentTimeMillis())
                 }
     }
 
-    override fun getAllStations(): Observable<List<StationEntity>> {
-        return stationsCache.getStations()
-    }
+    override fun clearCachedStations(): Completable = clearAll()
 
-    override fun clearStations(): Completable {
-        return stationsCache.clearStations()
-    }
-
-    override fun isCached(): Single<Boolean> {
-        return stationsCache.isCached()
-    }
+    override fun isCached() : Single<Boolean> = stationsCache.isDataCached()
 }

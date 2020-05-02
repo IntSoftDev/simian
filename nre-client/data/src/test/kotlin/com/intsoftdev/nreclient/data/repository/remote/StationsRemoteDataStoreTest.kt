@@ -12,34 +12,20 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class StationsRemoteDataStoreTest {
 
-    private lateinit var stationsRemoteDataStore: StationsRemoteDataStore
-
-    private lateinit var stationsRemoteRepository: StationsRemoteRepository
-
-    @Before
-    fun setUp() {
-        stationsRemoteRepository = mock()
-        stationsRemoteDataStore = StationsRemoteDataStore(stationsRemoteRepository)
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
-    fun clearStationsThrowsException() {
-        stationsRemoteDataStore.clearStations().test()
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
-    fun saveStationsThrowsException() {
-        stationsRemoteDataStore.saveAllStations(makeStationEntityList(2)).test()
-    }
+    private var stationsRemoteRepository = mock<StationsRemoteRepository>()
+    private var cut = StationsRemoteDataStoreImpl(stationsRemoteRepository)
 
     @Test
-    fun getStationsCompletes() {
-        stubStationsCacheGetStations(Observable.just(makeStationEntityList(2)))
-        val testObserver = stationsRemoteRepository.getAllStations().test()
+    fun `given remote stations when observed then completes`() {
+        // given
+        stubStationsRemoteGetStations(Observable.just(makeStationEntityList(2)))
+        // when
+        val testObserver = cut.getAllStationsFromServer().test()
+        // then
         testObserver.assertComplete()
     }
 
-    private fun stubStationsCacheGetStations(single: Observable<List<StationEntity>>) {
+    private fun stubStationsRemoteGetStations(single: Observable<List<StationEntity>>) {
         whenever(stationsRemoteRepository.getAllStations())
                 .thenReturn(single)
     }

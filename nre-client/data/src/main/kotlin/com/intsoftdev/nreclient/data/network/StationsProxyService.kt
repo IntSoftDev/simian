@@ -9,6 +9,6 @@ import retrofit2.http.GET
  */
 internal interface StationsProxyService {
 
-    @GET("crslocations")
+    @GET("locations")
     fun getAllStations(): Observable<List<StationModel>>
 }

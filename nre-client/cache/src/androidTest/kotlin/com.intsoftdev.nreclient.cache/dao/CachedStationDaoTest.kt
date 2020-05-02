@@ -45,16 +45,4 @@ class CachedStationDaoTest {
     private fun makeCachedStation(): CachedStation {
         return CachedStation("WTN", "Whitton", 52.4, 0.03)
     }
-
-   /* @Test
-    fun getBufferoosRetrievesData() {
-        val cachedBufferoos = BufferooFactory.makeCachedBufferooList(5)
-
-        cachedBufferoos.forEach {
-            bufferoosDatabase.cachedBufferooDao().insertBufferoo(it) }
-
-        val retrievedBufferoos = bufferoosDatabase.cachedBufferooDao().getBufferoos()
-        assert(retrievedBufferoos == cachedBufferoos.sortedWith(compareBy({ it.id }, { it.id })))
-    }*/
-
 }

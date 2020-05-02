@@ -35,6 +35,8 @@ ext {
 
     httpLoggingVersion = "4.4.0"
 
+    timberVersion = '4.7.1'
+
     // test
     junitVersion = '4.13'
     mockitoKotlinVersion = '2.2.0'
@@ -64,6 +66,7 @@ ext {
     roomLib               =  "androidx.room:room-runtime:$roomVersion"
     roomAnnotationProcessor = "androidx.room:room-compiler:$roomVersion" // For Kotlin use kapt instead of annotationProcessor
 
+    timberLib               =  "com.jakewharton.timber:timber:$timberVersion"
 
     // network libraries
     retrofitLib = "com.squareup.retrofit2:retrofit:$retrofit"
