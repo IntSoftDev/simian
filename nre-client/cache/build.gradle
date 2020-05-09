@@ -1,32 +1,42 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: '../common/android.gradle'
-apply from: '../common/dependencies.gradle'
+apply plugin: 'kotlin-kapt'
+apply from: '../../common/android.gradle'
+apply from: '../../common/dependencies.gradle'
 
 android {
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':domain')
     implementation project(':data')
-    implementation project(':cache')
     implementation kotlinlib
     implementation corektx
     implementation appcompat
     implementation koinLib
     implementation koinViewModel
     implementation koinTest
+    implementation retrofitLib
+    implementation okHttpLib
     implementation rxAndroidLib
     implementation rxJavaLib
+    implementation retrofitGsonConverter
+    implementation retrofitRxJavaAdapter
+    implementation httpLoggingInterceptor
+    implementation roomLib
+    implementation timberLib
+    kapt roomAnnotationProcessor
 
     testImplementation testjunit
     testImplementation mockitoKotlin
@@ -34,4 +44,7 @@ dependencies {
     testImplementation mockkTest
     testImplementation kotlinTest
     testImplementation archCore
+    androidTestImplementation androidTestCore
+    androidTestImplementation androidTestJUnit
+    androidTestImplementation androidTestRunner
 }

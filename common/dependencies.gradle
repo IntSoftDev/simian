@@ -13,6 +13,9 @@ ext {
     navKtxVersion = '2.1.0'
     swipeLayoutVersion = '1.0.0'
 
+    // database
+    roomVersion = '2.2.5'
+
     // network
     retrofit = "2.7.1"
     okHttp = "4.4.0"
@@ -32,6 +35,8 @@ ext {
 
     httpLoggingVersion = "4.4.0"
 
+    timberVersion = '4.7.1'
+
     // test
     junitVersion = '4.13'
     mockitoKotlinVersion = '2.2.0'
@@ -39,6 +44,8 @@ ext {
     archCoreTestingVersion = '1.1.1'
     archNavigationTestVersion = '1.0.0-alpha06'
     mockkVersion = '1.9.3'
+    testRunnerCore = '1.0.0'
+    testRunnerVersion = '1.1.0'
 
     kotlinlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
@@ -55,6 +62,11 @@ ext {
     koinViewModel         = "org.koin:koin-android-viewmodel:$koin"
     koinScope             = "org.koin:koin-androidx-scope:$koin"
     koinTest              = "org.koin:koin-test:$koin"
+
+    roomLib               =  "androidx.room:room-runtime:$roomVersion"
+    roomAnnotationProcessor = "androidx.room:room-compiler:$roomVersion" // For Kotlin use kapt instead of annotationProcessor
+
+    timberLib               =  "com.jakewharton.timber:timber:$timberVersion"
 
     // network libraries
     retrofitLib = "com.squareup.retrofit2:retrofit:$retrofit"
@@ -81,4 +93,9 @@ ext {
     navigationTesting = "android.arch.navigation:navigation-testing-ktx:$archNavigationTestVersion"
     mockkTest = "io.mockk:mockk:$mockkVersion"
     kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+
+    androidTestCore = "androidx.test:core:$testRunnerCore"
+    androidTestJUnit = "androidx.test.ext:junit:$testRunnerCore"
+    androidTestRunner = "androidx.test:runner:$testRunnerVersion"
+    androidTestRules = "androidx.test:rules:$testRunnerVersion"
 }

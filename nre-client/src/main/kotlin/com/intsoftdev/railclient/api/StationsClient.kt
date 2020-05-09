@@ -22,4 +22,12 @@ class StationsClient : StationsAPI, DIComponent {
     override fun getStationsByLocation(location: Location, numResults: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun getModelFromName(stationName: String): Observable<StationModel> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getModelFromCode(crsCode: String): Observable<StationModel> {
+        return getStationsUseCase.getStationFromCrs(crsCode)
+    }
 }

@@ -6,4 +6,5 @@ import io.reactivex.Observable
 
 class GetStationsUseCase(private val stationsRepository: StationsRepository) {
     fun getAllStations(): Observable<List<StationModel>> = stationsRepository.getAllStations()
+    fun getStationFromCrs(crs: String):Observable<StationModel> = stationsRepository.getModelFromCache(null, crs)
 }

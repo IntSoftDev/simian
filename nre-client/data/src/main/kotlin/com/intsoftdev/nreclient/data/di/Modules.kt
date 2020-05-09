@@ -1,11 +1,15 @@
 package com.intsoftdev.nreclient.data.di
 
-
 import android.content.Context
-import com.intsoftdev.nreclient.data.BuildConfig
-import com.intsoftdev.nreclient.data.StationsProxyService
-import com.intsoftdev.nreclient.data.StationsRepositoryImpl
-import com.intsoftdev.nreclient.data.StatusCodeInterceptor
+import com.intsoftdev.nreclient.data.*
+import com.intsoftdev.nreclient.data.mapper.StationModelMapper
+import com.intsoftdev.nreclient.data.network.StationsProxyService
+import com.intsoftdev.nreclient.data.network.StatusCodeInterceptor
+import com.intsoftdev.nreclient.data.repository.StationsRepositoryImpl
+import com.intsoftdev.nreclient.data.repository.cache.StationsCacheDataStoreImpl
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteDataStoreImpl
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepository
+import com.intsoftdev.nreclient.data.repository.remote.StationsRemoteRepositoryImpl
 import com.intsoftdev.nreclient.domain.StationsRepository
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -16,13 +20,32 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "http://10.0.2.2:8080/"
+private const val BASE_URL = "https://onrails.apphb.com/"
 private const val DEFAULT_TIMEOUT = 15L
 private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
 
 val dataModule = module {
 
-    factory<StationsRepository> { StationsRepositoryImpl(stationsProxyService = get()) }
+    factory { StationModelMapper() }
+
+    factory<StationsRemoteRepository> {
+        StationsRemoteRepositoryImpl(
+                stationsProxyService = get(),
+                stationMapper = get())
+    }
+
+    factory<StationsRepository> {
+        StationsRepositoryImpl(
+                stationsCacheStoreImpl = get(),
+                stationsRemoteStoreImpl = get(),
+                stationMapper = get())
+    }
+
+    factory {
+        StationsRemoteDataStoreImpl(stationsRemoteRepository = get())
+    }
+
+    factory { StationsCacheDataStoreImpl(stationsCache = get()) }
 
     factory<StationsProxyService> {
         Retrofit.Builder()
@@ -43,7 +66,7 @@ val dataModule = module {
                 .addInterceptor(HttpLoggingInterceptor()
                         .apply {
                             level = if (BuildConfig.DEBUG)
-                                HttpLoggingInterceptor.Level.BODY
+                                HttpLoggingInterceptor.Level.BASIC
                             else
                                 HttpLoggingInterceptor.Level.NONE
                         })
