@@ -4,10 +4,6 @@ import com.intsoftdev.nreclient.data.model.StationEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 internal class StationsCacheDataStoreImpl(
         private val stationsCache: StationsCache) : StationsCacheDataStore, StationsCache by stationsCache {
@@ -23,5 +19,7 @@ internal class StationsCacheDataStoreImpl(
 
     override fun clearCachedStations(): Completable = clearAll()
 
-    override fun isCached() : Single<Boolean> = stationsCache.isDataCached()
+    override fun isCached(): Single<Boolean> = stationsCache.isDataCached()
+
+    override fun getFromCache(stationName: String?, crsCode: String?): Observable<StationEntity> = stationsCache.getStation(null, crsCode)
 }

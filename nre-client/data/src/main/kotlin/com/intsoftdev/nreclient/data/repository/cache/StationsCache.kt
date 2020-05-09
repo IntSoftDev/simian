@@ -45,4 +45,9 @@ interface StationsCache {
      * @return true if the cache is expired, otherwise false
      */
     fun isCacheExpired(): Boolean
+
+    /*
+     */
+
+    fun getStation(name: String?, crs: String?): Observable<StationEntity>
 }

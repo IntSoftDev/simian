@@ -1,16 +1,15 @@
 package com.intsoftdev.nreclient.cache
 
 import com.intsoftdev.nreclient.cache.db.StationsDatabase
-import com.intsoftdev.nreclient.cache.mapper.StationEntityMapper
 import com.intsoftdev.nreclient.data.model.StationEntity
 import com.intsoftdev.nreclient.data.repository.cache.StationsCache
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
+import timber.log.Timber
 
 internal class StationsCacheImpl(
         val stationsDatabase: StationsDatabase,
-        private val entityMapper: StationEntityMapper,
         private val preferencesHelper: PreferencesHelper) : StationsCache {
 
     companion object {
@@ -25,20 +24,18 @@ internal class StationsCacheImpl(
     }
 
     override fun saveStations(stations: List<StationEntity>): Completable {
+        Timber.d("saveStations enter")
         return Completable.defer {
-            stations.forEach {
-                stationsDatabase.cachedStationDao().insertStation(
-                        entityMapper.mapToCached(it))
-            }
+            stationsDatabase.cachedStationDao().insertStations(stations)
+            Timber.d("saveStations exit")
             Completable.complete()
         }
     }
 
-    override fun getStations(): Observable<List<StationEntity>>  {
+    override fun getStations(): Observable<List<StationEntity>> {
+        Timber.d("getStations enter")
         return Observable.defer {
             Observable.just(stationsDatabase.cachedStationDao().getStations())
-        }.map {
-            it.map { entityMapper.mapFromCached(it) }
         }
     }
 
@@ -59,6 +56,12 @@ internal class StationsCacheImpl(
         val currentTime = System.currentTimeMillis()
         val lastUpdateTime = this.getLastCacheUpdateTimeMillis()
         return currentTime - lastUpdateTime > Companion.EXPIRATION_TIME_MS
+    }
+
+    override fun getStation(name: String?, crs: String?): Observable<StationEntity> {
+        return Observable.defer {
+            Observable.just(stationsDatabase.cachedStationDao().getStations().first())
+        }
     }
 
     /**

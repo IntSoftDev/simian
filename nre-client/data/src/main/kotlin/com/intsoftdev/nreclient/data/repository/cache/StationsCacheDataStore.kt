@@ -6,9 +6,8 @@ import io.reactivex.Observable
 import io.reactivex.Single
 
 /**
- * Interface defining methods for the data operations related to Stations.
- * This is to be implemented by external data source layers, setting the requirements for the
- * operations that need to be implemented
+ * Methods for the data operations related to Stations.
+ * Implemented by the data layer
  */
 internal interface StationsCacheDataStore {
 
@@ -16,4 +15,5 @@ internal interface StationsCacheDataStore {
     fun saveAllStationsToCache(stations: List<StationEntity>): Completable
     fun clearCachedStations(): Completable
     fun isCached(): Single<Boolean>
+    fun getFromCache(stationName: String?, crsCode: String?) : Observable<StationEntity>
 }

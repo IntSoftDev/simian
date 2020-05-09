@@ -20,7 +20,7 @@ internal class StationsRepositoryImpl(
     : StationsRepository, StationsCacheDataStore by stationsCacheStoreImpl, StationsRemoteDataStore by stationsRemoteStoreImpl {
 
     override fun getAllStations(): Observable<List<StationModel>> {
-        Timber.d("getAllStations")
+        Timber.d("getAllStations enter")
         var useCache: Boolean
         return isCached().flatMapObservable { cached ->
             useCache = cached && !stationsCacheStoreImpl.isCacheExpired()
@@ -28,6 +28,7 @@ internal class StationsRepositoryImpl(
                     .flatMap { entities -> Observable.just(entities.map { entity -> stationMapper.mapFromEntity(entity) }) }
                     .flatMap { stations ->
                         if (useCache) {
+                            Timber.d("transformed stations")
                             Observable.just(stations)
                         } else
                             saveAllStations(stations).toSingle { stations }.toObservable()
@@ -39,9 +40,16 @@ internal class StationsRepositoryImpl(
     }
 
     override fun saveAllStations(stations: List<StationModel>): Completable {
+        Timber.d("saveAllStations enter")
         val stationEntities = mutableListOf<StationEntity>()
         stations.map { stationEntities.add(stationMapper.mapToEntity(it)) }
         return saveAllStationsToCache(stationEntities)
+    }
+
+    override fun getModelFromCache(stationName: String?, crsCode: String?): Observable<StationModel> {
+        return stationsCacheStoreImpl.getFromCache(stationName, crsCode).map {
+            stationMapper.mapFromEntity(it)
+        }
     }
 
     internal fun getAllStations(refreshfromCache: Boolean): Observable<List<StationEntity>> =

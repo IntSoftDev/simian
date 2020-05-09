@@ -35,6 +35,7 @@ dependencies {
     implementation retrofitRxJavaAdapter
     implementation httpLoggingInterceptor
     implementation roomLib
+    implementation timberLib
     kapt roomAnnotationProcessor
 
     testImplementation testjunit

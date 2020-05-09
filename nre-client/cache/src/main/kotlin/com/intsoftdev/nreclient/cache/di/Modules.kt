@@ -5,7 +5,6 @@ import com.intsoftdev.nreclient.cache.PreferencesHelper
 import com.intsoftdev.nreclient.cache.StationsCacheImpl
 import com.intsoftdev.nreclient.cache.db.StationConstants
 import com.intsoftdev.nreclient.cache.db.StationsDatabase
-import com.intsoftdev.nreclient.cache.mapper.StationEntityMapper
 import com.intsoftdev.nreclient.data.repository.cache.StationsCache
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -26,14 +25,11 @@ val cacheModule = module {
 
     factory { get<StationsDatabase>().cachedStationDao() }
 
-    factory { StationEntityMapper() }
-
     factory { PreferencesHelper(androidContext()) }
 
     factory<StationsCache> {
         StationsCacheImpl(
                 stationsDatabase = get(),
-                entityMapper = get(),
                 preferencesHelper = get())
     }
 }
