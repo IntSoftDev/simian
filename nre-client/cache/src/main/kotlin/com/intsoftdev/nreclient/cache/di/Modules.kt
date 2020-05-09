@@ -10,10 +10,6 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-private const val BASE_URL = "http://10.0.2.2:8080/"
-private const val DEFAULT_TIMEOUT = 15L
-private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
-
 val cacheModule = module {
 
     single {
