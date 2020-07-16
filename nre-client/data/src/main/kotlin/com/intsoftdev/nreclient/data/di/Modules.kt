@@ -20,8 +20,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "https://onrails.apphb.com/"
-private const val DEFAULT_TIMEOUT = 15L
+private const val BASE_URL = "https://onrails.azurewebsites.net/"
+private const val DEFAULT_TIMEOUT = 30L
 private const val CACHE_SIZE_BYTES = 1024 * 1024 * 2L
 
 val dataModule = module {
