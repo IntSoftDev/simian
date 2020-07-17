@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.intsoftdev.nreclient.domain.StationModel
 import kotlinx.android.synthetic.main.fragment_stations.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.core.context.loadKoinModules
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

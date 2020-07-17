@@ -11,13 +11,13 @@ import com.intsoftdev.nreclient.domain.StationsRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
 import timber.log.Timber
-import java.lang.RuntimeException
 
 internal class StationsRepositoryImpl(
-        private val stationsCacheStoreImpl: StationsCacheDataStoreImpl,
-        private val stationsRemoteStoreImpl: StationsRemoteDataStoreImpl,
-        private val stationMapper: StationModelMapper)
-    : StationsRepository, StationsCacheDataStore by stationsCacheStoreImpl, StationsRemoteDataStore by stationsRemoteStoreImpl {
+    private val stationsCacheStoreImpl: StationsCacheDataStoreImpl,
+    private val stationsRemoteStoreImpl: StationsRemoteDataStoreImpl,
+    private val stationMapper: StationModelMapper
+) : StationsRepository, StationsCacheDataStore by stationsCacheStoreImpl,
+    StationsRemoteDataStore by stationsRemoteStoreImpl {
 
     override fun getAllStations(): Observable<List<StationModel>> {
         Timber.d("getAllStations enter")
@@ -25,17 +25,23 @@ internal class StationsRepositoryImpl(
         return isCached().flatMapObservable { cached ->
             useCache = cached && !stationsCacheStoreImpl.isCacheExpired()
             getAllStations(useCache)
-                    .flatMap { entities -> Observable.just(entities.map { entity -> stationMapper.mapFromEntity(entity) }) }
-                    .flatMap { stations ->
-                        if (useCache) {
-                            Timber.d("transformed stations")
-                            Observable.just(stations)
-                        } else
-                            saveAllStations(stations).toSingle { stations }.toObservable()
-                    }.onErrorReturn {
-                        // TODO determine cache logic
-                        throw(it)
-                    }
+                .flatMap { entities ->
+                    Observable.just(entities.map { entity ->
+                        stationMapper.mapFromEntity(
+                            entity
+                        )
+                    })
+                }
+                .flatMap { stations ->
+                    if (useCache) {
+                        Timber.d("transformed stations")
+                        Observable.just(stations)
+                    } else
+                        saveAllStations(stations).toSingle { stations }.toObservable()
+                }.onErrorReturn {
+                    // TODO determine cache logic
+                    throw(it)
+                }
         }
     }
 
@@ -46,15 +52,16 @@ internal class StationsRepositoryImpl(
         return saveAllStationsToCache(stationEntities)
     }
 
-    override fun getModelFromCache(stationName: String?, crsCode: String?): Observable<StationModel> {
-        return stationsCacheStoreImpl.getFromCache(stationName, crsCode).map {
-            stationMapper.mapFromEntity(it)
-        }
+    override fun getModelFromCache(
+        stationName: String?,
+        crsCode: String?
+    ) = stationsCacheStoreImpl.getFromCache(stationName, crsCode).map {
+        stationMapper.mapFromEntity(it)
     }
 
-    internal fun getAllStations(refreshfromCache: Boolean): Observable<List<StationEntity>> =
-            when (refreshfromCache) {
-                true -> getAllStationsFromCache()
-                false -> getAllStationsFromServer()
-            }
+    internal fun getAllStations(refreshfromCache: Boolean) =
+        when (refreshfromCache) {
+            true -> getAllStationsFromCache()
+            false -> getAllStationsFromServer()
+        }
 }

@@ -2,8 +2,8 @@ rootProject.name = "NRE"
 include ':app'
 include ':nre-client'
 include 'domain'
-project(':domain').projectDir = new File('./nre-client/domain')
+project(':domain').projectDir = new File('nre-client/domain')
 include 'data'
-project(':data').projectDir = new File('./nre-client/data')
+project(':data').projectDir = new File('nre-client/data')
 include 'cache'
-project(':cache').projectDir = new File('./nre-client/cache')
+project(':cache').projectDir = new File('nre-client/cache')

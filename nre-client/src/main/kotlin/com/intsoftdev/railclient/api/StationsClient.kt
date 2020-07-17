@@ -11,9 +11,8 @@ class StationsClient : StationsAPI, DIComponent {
 
     private val getStationsUseCase by lazy { get<GetStationsUseCase>() }
 
-    override fun getAllStations(): Observable<List<StationModel>> {
-        return getStationsUseCase.getAllStations()
-    }
+    override fun getAllStations(): Observable<List<StationModel>> =
+        getStationsUseCase.getAllStations()
 
     override fun getLondonStations(): Observable<List<StationModel>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
