@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply from: '../common/android.gradle'
 apply from: '../common/dependencies.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.azaka01'
 
 android {
 
