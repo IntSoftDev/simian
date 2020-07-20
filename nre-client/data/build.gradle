@@ -4,9 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply from: '../../common/android.gradle'
 apply from: '../../common/dependencies.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
 
-//TODO add groupId to all modules
-// reference groupId from central location
 // check if default artifactId can be used (module name)
 
 group = project.groupId
