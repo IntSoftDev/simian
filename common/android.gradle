@@ -1,3 +1,6 @@
+project.ext {
+    groupId = 'com.github.azaka01'
+}
 
 android {
     compileSdkVersion 29

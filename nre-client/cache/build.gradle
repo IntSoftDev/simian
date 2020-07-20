@@ -5,7 +5,19 @@ apply plugin: 'kotlin-kapt'
 apply from: '../../common/android.gradle'
 apply from: '../../common/dependencies.gradle'
 
+group = project.groupId
+
+project.ext {
+    artifactId = 'cache'
+}
+
 android {
+
+    defaultConfig {
+        versionCode 2
+        versionName "1.2"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -48,3 +60,5 @@ dependencies {
     androidTestImplementation androidTestJUnit
     androidTestImplementation androidTestRunner
 }
+
+apply from: '../../publish.gradle'

@@ -4,9 +4,19 @@ apply plugin: 'kotlin-android-extensions'
 apply from: '../common/android.gradle'
 apply from: '../common/dependencies.gradle'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.azaka01'
+
+group = project.groupId
+
+project.ext {
+    artifactId = 'nre-client'
+}
 
 android {
+
+    defaultConfig {
+        versionCode 2
+        versionName "1.2"
+    }
 
     buildTypes {
         release {
@@ -37,3 +47,5 @@ dependencies {
     testImplementation kotlinTest
     testImplementation archCore
 }
+
+apply from: '../publish.gradle'

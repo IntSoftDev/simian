@@ -5,7 +5,22 @@ apply plugin: 'kotlin-kapt'
 apply from: '../../common/android.gradle'
 apply from: '../../common/dependencies.gradle'
 
+//TODO add groupId to all modules
+// reference groupId from central location
+// check if default artifactId can be used (module name)
+
+group = project.groupId
+
+project.ext {
+    artifactId = 'data'
+}
+
 android {
+    defaultConfig {
+        versionCode 2
+        versionName "1.2"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -41,3 +56,5 @@ dependencies {
     testImplementation kotlinTest
     testImplementation archCore
 }
+
+apply from: '../../publish.gradle'
