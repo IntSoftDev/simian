@@ -3,8 +3,8 @@ apply plugin: 'maven-publish'
 project.afterEvaluate {
     publishing {
         publications {
-            debug(MavenPublication) {
-                from components.debug
+            release(MavenPublication) {
+                from components.release
 
                 setGroupId project.groupId
                 setArtifactId project.artifactId

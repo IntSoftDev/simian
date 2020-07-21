@@ -56,4 +56,4 @@ dependencies {
     testImplementation archCore
 }
 
-//apply from: '../../publish.gradle'
+apply from: '../../publish.gradle'

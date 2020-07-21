@@ -62,4 +62,4 @@ dependencies {
     androidTestImplementation androidTestRunner
 }
 
-//apply from: '../../publish.gradle'
+apply from: '../../publish.gradle'
