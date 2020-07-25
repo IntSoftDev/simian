@@ -1,5 +1,5 @@
 project.ext {
-    groupId = 'com.github.azaka01'
+    groupId = 'com.intsoftdev'
 }
 
 android {
