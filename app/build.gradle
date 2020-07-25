@@ -17,9 +17,26 @@ android {
     }
 }
 
+// important to get the latest snapshot rather than cached one
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 dependencies {
-    implementation project(':nre-client')
-    implementation project(':domain')
+
+    // *** LIBRARY CONFIGURATIONS ***
+
+    //  for local project dependencies with source code
+    //  implementation project(':nre-client')
+    //  implementation project(':domain')
+
+    // for release library on jitpack
+    // implementation 'com.github.azaka01:simian:develop-SNAPSHOT'
+
+    // for local maven published library
+    implementation 'com.github.azaka01:nre-client:1.3'
+    implementation 'com.github.azaka01:domain:1.2'
+
     implementation kotlinlib
     implementation corektx
     implementation recyclerView
@@ -41,3 +58,4 @@ dependencies {
     testImplementation kotlinTest
     testImplementation archCore
 }
+

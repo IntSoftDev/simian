@@ -10,6 +10,14 @@ project.afterEvaluate {
                 setArtifactId project.artifactId
                 version android.defaultConfig.versionName
             }
+
+            debug(MavenPublication) {
+                from components.debug
+
+                setGroupId project.groupId
+                setArtifactId project.artifactId
+                version android.defaultConfig.versionName
+            }
         }
     }
 }

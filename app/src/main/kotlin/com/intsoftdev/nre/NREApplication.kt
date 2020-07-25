@@ -15,6 +15,7 @@ class NREApplication : Application() {
             androidContext(this@NREApplication)
             modules(listOf(viewModelModule, sdkModule))
         }
-        StationsClientInitializer(this).initialise()
+        StationsClientInitializer(this)
+            .initialise(enableLogging = true)
     }
 }

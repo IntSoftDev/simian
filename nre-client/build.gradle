@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         versionCode 2
-        versionName "1.2"
+        versionName "1.21"
     }
 
     buildTypes {
@@ -39,6 +39,7 @@ dependencies {
     implementation koinTest
     implementation rxAndroidLib
     implementation rxJavaLib
+    implementation timberLib
 
     testImplementation testjunit
     testImplementation mockitoKotlin
@@ -47,5 +48,31 @@ dependencies {
     testImplementation kotlinTest
     testImplementation archCore
 }
+/*
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
 
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task classesJar(type: Jar) {
+    from "$buildDir/intermediates/classes/release"
+}
+
+artifacts {
+    archives classesJar
+    archives javadocJar
+    archives sourcesJar
+}
+*/
 apply from: '../publish.gradle'
+
