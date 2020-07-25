@@ -15,8 +15,8 @@ project.ext {
 android {
 
     defaultConfig {
-        versionCode 2
-        versionName "1.2"
+        versionCode 1
+        versionName "0.1"
     }
 
     buildTypes {
