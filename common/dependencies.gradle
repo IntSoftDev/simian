@@ -1,0 +1,101 @@
+
+ext {
+
+    kotlinVersion = '1.3.61'
+
+    // UI
+    coreKtxVersion = '1.2.0'
+    recyclerViewVersion = '1.1.0-rc01'
+    appCompatVersion = '1.1.0'
+    materialVersion = '1.0.0'
+    constraintLayoutVersion = '1.1.3'
+    fragmentKtxVersion = '2.1.0'
+    navKtxVersion = '2.1.0'
+    swipeLayoutVersion = '1.0.0'
+
+    // database
+    roomVersion = '2.2.5'
+
+    // network
+    retrofit = "2.7.1"
+    okHttp = "4.4.0"
+
+    // DI
+    koin = "2.1.4"
+
+    // Rx
+    rxjava = "2.2.18"
+    rxandroid = "2.1.1"
+
+    // Json
+    kotlinSerialization = "0.14.0"
+    kotlinSerialazationRetrofitConverter = "0.4.0"
+    gson =  "2.8.5"
+    gsonConverter = "2.3.0"
+
+    httpLoggingVersion = "4.4.0"
+
+    timberVersion = '4.7.1'
+
+    // test
+    junitVersion = '4.13'
+    mockitoKotlinVersion = '2.2.0'
+    mockitoVersion = '3.2.4'
+    archCoreTestingVersion = '1.1.1'
+    archNavigationTestVersion = '1.0.0-alpha06'
+    mockkVersion = '1.9.3'
+    testRunnerCore = '1.0.0'
+    testRunnerVersion = '1.1.0'
+
+    kotlinlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    corektx = "androidx.core:core-ktx:$coreKtxVersion"
+    appcompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    material = "com.google.android.material:material:$materialVersion"
+    constraint = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    ktx = "androidx.navigation:navigation-fragment-ktx:$fragmentKtxVersion"
+    nav = "androidx.navigation:navigation-ui-ktx:$navKtxVersion"
+    swipe = "androidx.swiperefreshlayout:swiperefreshlayout:$swipeLayoutVersion"
+
+    // di
+    koinLib               = "org.koin:koin-android:$koin"
+    koinViewModel         = "org.koin:koin-android-viewmodel:$koin"
+    koinScope             = "org.koin:koin-androidx-scope:$koin"
+    koinTest              = "org.koin:koin-test:$koin"
+
+    roomLib               =  "androidx.room:room-runtime:$roomVersion"
+    roomAnnotationProcessor = "androidx.room:room-compiler:$roomVersion" // For Kotlin use kapt instead of annotationProcessor
+
+    timberLib               =  "com.jakewharton.timber:timber:$timberVersion"
+
+    // network libraries
+    retrofitLib = "com.squareup.retrofit2:retrofit:$retrofit"
+    okHttpLib             = "com.squareup.okhttp3:okhttp:$okHttp"
+    rxJavaLib             = "io.reactivex.rxjava2:rxjava:$rxjava"
+    rxJavaAdapter         = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    rxAndroidLib          = "io.reactivex.rxjava2:rxandroid:$rxandroid"
+
+    kotlinSerialization   = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinSerialization"
+    kotlinSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$kotlinSerialazationRetrofitConverter"
+    gsonLib               = "com.google.code.gson:gson:$gson"
+    gsonConverterLib      = "com.squareup.retrofit2:converter-gson:$gsonConverter"
+
+    retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:$retrofit"
+    retrofitRxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$httpLoggingVersion"
+
+    // testing libraries
+    testjunit = "junit:junit:$junitVersion"
+
+    mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+    mockitoInline = "org.mockito:mockito-inline:$mockitoVersion"
+    archCore = "android.arch.core:core-testing:$archCoreTestingVersion"
+    navigationTesting = "android.arch.navigation:navigation-testing-ktx:$archNavigationTestVersion"
+    mockkTest = "io.mockk:mockk:$mockkVersion"
+    kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+
+    androidTestCore = "androidx.test:core:$testRunnerCore"
+    androidTestJUnit = "androidx.test.ext:junit:$testRunnerCore"
+    androidTestRunner = "androidx.test:runner:$testRunnerVersion"
+    androidTestRules = "androidx.test:rules:$testRunnerVersion"
+}

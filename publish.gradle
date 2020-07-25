@@ -1,0 +1,23 @@
+apply plugin: 'maven-publish'
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                setGroupId project.groupId
+                setArtifactId project.artifactId
+                version android.defaultConfig.versionName
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+
+                setGroupId project.groupId
+                setArtifactId project.artifactId
+                version android.defaultConfig.versionName
+            }
+        }
+    }
+}
