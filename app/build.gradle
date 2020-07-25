@@ -27,6 +27,7 @@ dependencies {
     // *** LIBRARY CONFIGURATIONS ***
 
     //  for local project dependencies with source code
+
       implementation project(':nre-client')
       implementation project(':domain')
 
@@ -36,6 +37,7 @@ dependencies {
     // for local maven published library
    // implementation 'com.github.azaka01:nre-client:1.3'
    // implementation 'com.github.azaka01:domain:1.2'
+
 
     implementation kotlinlib
     implementation corektx
