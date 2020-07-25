@@ -27,15 +27,15 @@ dependencies {
     // *** LIBRARY CONFIGURATIONS ***
 
     //  for local project dependencies with source code
-    //  implementation project(':nre-client')
-    //  implementation project(':domain')
+      implementation project(':nre-client')
+      implementation project(':domain')
 
     // for release library on jitpack
-    // implementation 'com.github.azaka01:simian:develop-SNAPSHOT'
+    // implementation 'com.intsofdev:simian:0.2'
 
     // for local maven published library
-    implementation 'com.github.azaka01:nre-client:1.3'
-    implementation 'com.github.azaka01:domain:1.2'
+   // implementation 'com.github.azaka01:nre-client:1.3'
+   // implementation 'com.github.azaka01:domain:1.2'
 
     implementation kotlinlib
     implementation corektx
