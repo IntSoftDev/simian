@@ -1,56 +1,56 @@
 [
     {
-        "lat": 54.7638,
-        "name": "Horden",
-        "crs": "HRE",
-        "lon": -1.3073
+        "Latitude": 54.7638,
+        "StationName": "Horden",
+        "CrsCode": "HRE",
+        "Longitude": -1.3073
     },
     {
-        "lat": 50.835161,
-        "name": "Bruxelles Midi",
-        "crs": "BXS",
-        "lon": 4.335222
+        "Latitude": 50.835161,
+        "StationName": "Bruxelles Midi",
+        "CrsCode": "BXS",
+        "Longitude": 4.335222
     },
     {
-        "lat": 52.378333,
-        "name": "Amsterdam Centraal Station",
-        "crs": "AMS",
-        "lon": 4.9
+        "Latitude": 52.378333,
+        "StationName": "Amsterdam Centraal Station",
+        "CrsCode": "AMS",
+        "Longitude": 4.9
     },
     {
-        "lat": 43.3032794,
-        "lon": 5.380142,
-        "name": "Marseille St Charles",
-        "crs": "MSC"
+        "Latitude": 43.3032794,
+        "Longitude": 5.380142,
+        "StationName": "Marseille St Charles",
+        "CrsCode": "MSC"
     },
     {
-        "lat": 50.6394444, 
-        "name": "Lille Europe", 
-        "crs": "LIU", 
-        "lon": 3.0763889
+        "Latitude": 50.6394444, 
+        "StationName": "Lille Europe", 
+        "CrsCode": "LIU", 
+        "Longitude": 3.0763889
     }, 
     {
-        "lat": 48.869722, 
-        "name": "Marne La Vallee", 
-        "crs": "MCK", 
-        "lon": 2.782778
+        "Latitude": 48.869722, 
+        "StationName": "Marne La Vallee", 
+        "CrsCode": "MCK", 
+        "Longitude": 2.782778
     }, 
     {
-        "lat": 48.8809, 
-        "name": "Paris Nord", 
-        "crs": "PBN", 
-        "lon": 2.3553
+        "Latitude": 48.8809, 
+        "StationName": "Paris Nord", 
+        "CrsCode": "PBN", 
+        "Longitude": 2.3553
     }, 
     {
-        "lat": 50.9015, 
-        "name": "Calais Frethun", 
-        "crs": "FRH", 
-        "lon": 1.81152
+        "Latitude": 50.9015, 
+        "StationName": "Calais Frethun", 
+        "CrsCode": "FRH", 
+        "Longitude": 1.81152
     }, 
     {
-        "lat": 45.6168981, 
-        "name": "Bourg St Maurice", 
-        "crs": "XIB", 
-        "lon": 6.7734105
+        "Latitude": 45.6168981, 
+        "StationName": "Bourg St Maurice", 
+        "CrsCode": "XIB", 
+        "Longitude": 6.7734105
     }
 ]
