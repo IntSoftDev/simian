@@ -6,19 +6,19 @@ import com.intsoftdev.nreclient.domain.StationModel
 import com.intsoftdev.nreclient.domain.Version
 
 /**
- * Map a [StationEntity] to and from a [Station] instance when data is moving between
+ * Map a [VersionEntity] to and from a [Version] instance when data is moving between
  * the Data and the Domain layer
  */
 internal class VersionModelMapper : Mapper<VersionEntity, Version> {
 
     /**
-     * Map a [StationEntity] instance to a [StationModel] instance
+     * Map a [VersionEntity] instance to a [Version] instance
      */
     override fun mapFromEntity(type: VersionEntity) =
         Version(type.version, type.lastUpdated)
 
     /**
-     * Map a [StationModel] instance to a [StationEntity] instance
+     * Map a [Version] instance to a [VersionEntity] instance
      */
     override fun mapToEntity(type: Version) =
         VersionEntity(version = type.version, lastUpdated = type.lastUpdated)
