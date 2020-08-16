@@ -1,6 +1,7 @@
 package com.intsoftdev.nreclient.data.repository.cache
 
 import com.intsoftdev.nreclient.data.model.StationEntity
+import com.intsoftdev.nreclient.data.model.VersionEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -18,33 +19,25 @@ interface StationsCache {
     /**
      * Save a given list of Stations to the cache.
      */
-    fun saveStations(stations: List<StationEntity>): Completable
+    fun saveStations(
+        version: VersionEntity,
+        stations: List<StationEntity>
+    ): Completable
+
 
     /**
      * Retrieve a list of Stations from the cache.
      */
     fun getStations(): Observable<List<StationEntity>>
 
+    fun getVersionDetails(): Observable<VersionEntity>
+
     /**
      * Check whether there is a list of Stations stored in the cache.
      *
-     * @return true if the list is cached, otherwise false
+     * @return true if no stations are cached otherwise false
      */
-    fun isDataCached(): Single<Boolean>
-
-    /**
-     * Set a point in time at when the cache was last updated.
-     *
-     * @param lastCache the point in time at when the cache was last updated
-     */
-    fun setLastCacheTime(lastCache: Long)
-
-    /**
-     * Check if the cache is expired.
-     *
-     * @return true if the cache is expired, otherwise false
-     */
-    fun isCacheExpired(): Boolean
+    fun isCacheEmpty(): Single<Boolean>
 
     /*
      */

@@ -7,6 +7,7 @@ import com.intsoftdev.railclient.api.StationsClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
 class StationsViewModel(private val stationsClient: StationsClient) : ViewModel() {
 
@@ -19,13 +20,14 @@ class StationsViewModel(private val stationsClient: StationsClient) : ViewModel(
     fun getAllStations() {
         compositeDisposable.clear()
         stationsClient.getAllStations()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({ stations ->
-                    stationLiveData.postValue(stations)
-                    errorStateLiveData.postValue(false)
-                }) { throwable ->
-                    errorStateLiveData.postValue(true)
-                }.also { compositeDisposable.add(it) }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({ stationsResult ->
+                stationLiveData.postValue(stationsResult.stations)
+                errorStateLiveData.postValue(false)
+            }) { throwable ->
+                Timber.e("$throwable")
+                errorStateLiveData.postValue(true)
+            }.also { compositeDisposable.add(it) }
     }
 }

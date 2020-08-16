@@ -51,6 +51,7 @@ dependencies {
     implementation koinTest
     implementation rxAndroidLib
     implementation rxJavaLib
+    implementation timberLib
 
     testImplementation testjunit
     testImplementation mockitoKotlin

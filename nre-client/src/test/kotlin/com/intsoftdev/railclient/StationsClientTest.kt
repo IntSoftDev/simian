@@ -3,7 +3,7 @@ package com.intsoftdev.railclient
 import com.intsoftdev.nreclient.domain.StationModel
 import com.intsoftdev.railclient.api.StationsClient
 import com.intsoftdev.railclient.di.Di
-import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
+import com.intsoftdev.nreclient.domain.interactor.GetStationsUseCase
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
