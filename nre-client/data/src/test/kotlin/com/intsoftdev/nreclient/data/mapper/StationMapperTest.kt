@@ -41,7 +41,7 @@ class StationMapperTest {
     }
 
     private fun makeStationEntity(): StationEntity {
-        return StationEntity("WTN", "Whitton", 52.4, 0.03)
+        return StationEntity(crs = "WTN", name = "Whitton", lat = 52.4, lon = 0.03)
     }
 
     private fun makeStation(): StationModel {

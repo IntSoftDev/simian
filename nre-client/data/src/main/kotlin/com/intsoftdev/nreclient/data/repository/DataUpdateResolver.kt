@@ -23,7 +23,7 @@ internal class DataUpdateResolver(private val preferencesHelper: PreferencesHelp
     /**
      * Checks whether the last update time exceeds the defined [EXPIRATION_TIME_MS] time.
      */
-    fun doUpdate(): Boolean {
+    private fun doUpdate(): Boolean {
         val currentTime = System.currentTimeMillis()
         val lastUpdateTime = this.getLastUpdateTimeMillis()
         return currentTime - lastUpdateTime > Companion.EXPIRATION_TIME_MS

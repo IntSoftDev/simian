@@ -1,6 +1,7 @@
 package com.intsoftdev.nreclient.data.repository.cache
 
 import com.intsoftdev.nreclient.data.model.StationEntity
+import com.intsoftdev.nreclient.data.model.VersionEntity
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -28,16 +29,26 @@ class StationsCacheDataStoreTest {
     }
 
     @Test
+    fun `when cache has version then version is returned`() {
+        // when
+        whenever(stationsCache.getVersionDetails()).thenReturn(Observable.just(mock()))
+        val testObserver = cut.getVersionDetails().test()
+        // then
+        testObserver.assertComplete()
+        verify(stationsCache).getVersionDetails()
+    }
+
+    @Test
     fun `when station entities are saved then cache and time are updated`() {
         // given
         val stationEntities = mutableListOf<StationEntity>()
+        val versionEntity = VersionEntity(version = 0.3, lastUpdated = 1L)
         // when
-        whenever(stationsCache.saveStations(stationEntities)).thenReturn(Completable.complete())
-        val testObserver= cut.saveAllStationsToCache(stationEntities).test()
+        whenever(stationsCache.saveStations(versionEntity, stationEntities)).thenReturn(Completable.complete())
+        val testObserver= cut.saveAllStationsToCache(versionEntity, stationEntities).test()
         // then
         testObserver.assertComplete()
-        verify(stationsCache).saveStations(stationEntities)
-        verify(stationsCache).setLastCacheTime(any())
+        verify(stationsCache).saveStations(versionEntity, stationEntities)
     }
 
     @Test
@@ -49,10 +60,10 @@ class StationsCacheDataStoreTest {
     }
 
     @Test
-    fun `when is cache called then cache is checked`() {
+    fun `when is empty called then cache empty checked`() {
         // when
-        cut.isCached()
+        cut.isEmpty()
         // then
-        verify(stationsCache).isDataCached()
+        verify(stationsCache).isCacheEmpty()
     }
 }

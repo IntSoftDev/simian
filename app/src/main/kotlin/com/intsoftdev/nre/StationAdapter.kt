@@ -10,9 +10,7 @@ import kotlin.properties.Delegates
 
 class StationAdapter : RecyclerView.Adapter<StationAdapter.StationViewHolder>() {
 
-    var itemsList: List<StationModel> by Delegates.observable(listOf()) { _, _, _ ->
-        notifyDataSetChanged()
-    }
+    private val stations = mutableListOf<StationModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StationViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,10 +18,16 @@ class StationAdapter : RecyclerView.Adapter<StationAdapter.StationViewHolder>() 
         return StationViewHolder(view)
     }
 
-    override fun getItemCount() = itemsList.size
+    override fun getItemCount() = stations.size
 
     override fun onBindViewHolder(holder: StationViewHolder, position: Int) {
-        holder.bind(itemsList[position])
+        holder.bind(stations[position])
+    }
+
+    fun updateData(items: List<StationModel>) {
+        stations.clear()
+        stations.addAll(items)
+        notifyDataSetChanged()
     }
 
     class StationViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
