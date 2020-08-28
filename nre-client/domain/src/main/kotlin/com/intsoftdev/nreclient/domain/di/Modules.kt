@@ -1,6 +1,6 @@
 package com.intsoftdev.nreclient.domain.di
 
-import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
+import com.intsoftdev.nreclient.domain.interactor.GetStationsUseCase
 import org.koin.dsl.module
 
 val domainModule = module {

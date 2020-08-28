@@ -84,6 +84,8 @@ ext {
     retrofitRxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$httpLoggingVersion"
 
+    kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+    kotlinSerializationRetrofitConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.5.0"
     // testing libraries
     testjunit = "junit:junit:$junitVersion"
 

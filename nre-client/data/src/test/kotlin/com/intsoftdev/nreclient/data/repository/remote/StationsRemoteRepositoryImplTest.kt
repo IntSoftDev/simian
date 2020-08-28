@@ -15,29 +15,22 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 class StationsRemoteRepositoryImplTest {
 
-    private lateinit var entityMapper: StationModelMapper
     private lateinit var stationsService: StationsProxyService
 
     private lateinit var stationsRemoteRepository: StationsRemoteRepositoryImpl
 
-    @Before
+   @Before
     fun setup() {
-        entityMapper = mock()
         stationsService = mock()
-        stationsRemoteRepository = StationsRemoteRepositoryImpl(stationsService, entityMapper)
+        stationsRemoteRepository = StationsRemoteRepositoryImpl(stationsService)
     }
 
     @Test
     fun getStationsReturnsData() {
         val stationsResponse = makeStationsResponse()
         stubStationServiceGetStations(Observable.just(stationsResponse))
-        val stationEntities = mutableListOf<StationEntity>()
-        stationsResponse.forEach {
-            stationEntities.add(entityMapper.mapToEntity(it))
-        }
-
         val testObserver = stationsRemoteRepository.getAllStations().test()
-        testObserver.assertValue(stationEntities)
+        testObserver.assertValue(stationsResponse)
     }
 
     private fun stubStationServiceGetStations(observable:

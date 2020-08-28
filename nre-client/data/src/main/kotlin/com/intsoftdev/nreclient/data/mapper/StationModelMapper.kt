@@ -19,5 +19,10 @@ internal class StationModelMapper : Mapper<StationEntity, StationModel> {
      * Map a [StationModel] instance to a [StationEntity] instance
      */
     override fun mapToEntity(type: StationModel) =
-        StationEntity(type.crsCode, type.stationName, type.latitude, type.longitude)
+        StationEntity(
+            crs = type.crsCode,
+            name = type.stationName,
+            lat = type.latitude,
+            lon = type.longitude
+        )
 }
