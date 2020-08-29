@@ -32,6 +32,7 @@ dependencies {
       implementation project(':domain')
 
     // for release library on jitpack
+
    //  implementation 'com.intsoftdev:simian:0.2'
 
     // for local maven published library
