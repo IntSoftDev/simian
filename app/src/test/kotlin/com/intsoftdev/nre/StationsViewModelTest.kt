@@ -1,7 +1,7 @@
 package com.intsoftdev.nre
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.intsoftdev.nreclient.domain.StationModel
+import com.intsoftdev.nreclient.domain.*
 import com.intsoftdev.railclient.api.StationsClient
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -27,27 +27,24 @@ class StationsViewModelTest {
     @Test
     fun `given stations api success then live data is returned and error state false`() {
         // Given
-        val dummyList = emptyList<StationModel>()
-        whenever(stationsClient.getAllStations()).thenReturn(Observable.just(dummyList))
+
+        val success = ReturnState.Success(
+            StationsResult(
+                version = Version(version = 0.3, lastUpdated = 1L),
+                stations = emptyList<StationModel>()
+            )
+        )
+
+        val result = Observable.just(success)
+
+        whenever(stationsClient.getAllStations()).thenAnswer {
+            return@thenAnswer result
+        }
 
         // When
         cut.getAllStations()
 
         // Then
-        assertEquals(cut.stationLiveData.value, dummyList)
-        assertEquals(cut.errorStateLiveData.value, false)
-    }
-
-    @Test
-    fun `given stations api error then error state true`() {
-        // Given
-        val mockError = mock<Throwable>()
-        whenever(stationsClient.getAllStations()).thenReturn(Observable.error(mockError))
-
-        // When
-        cut.getAllStations()
-
-        // Then
-        assertEquals(cut.errorStateLiveData.value, true)
+        assertEquals(cut.result.value, success.data)
     }
 }

@@ -1,0 +1,56 @@
+[
+    {
+        "Latitude": 54.7638,
+        "StationName": "Horden",
+        "CrsCode": "HRE",
+        "Longitude": -1.3073
+    },
+    {
+        "Latitude": 50.835161,
+        "StationName": "Bruxelles Midi",
+        "CrsCode": "BXS",
+        "Longitude": 4.335222
+    },
+    {
+        "Latitude": 52.378333,
+        "StationName": "Amsterdam Centraal Station",
+        "CrsCode": "AMS",
+        "Longitude": 4.9
+    },
+    {
+        "Latitude": 43.3032794,
+        "Longitude": 5.380142,
+        "StationName": "Marseille St Charles",
+        "CrsCode": "MSC"
+    },
+    {
+        "Latitude": 50.6394444, 
+        "StationName": "Lille Europe", 
+        "CrsCode": "LIU", 
+        "Longitude": 3.0763889
+    }, 
+    {
+        "Latitude": 48.869722, 
+        "StationName": "Marne La Vallee", 
+        "CrsCode": "MCK", 
+        "Longitude": 2.782778
+    }, 
+    {
+        "Latitude": 48.8809, 
+        "StationName": "Paris Nord", 
+        "CrsCode": "PBN", 
+        "Longitude": 2.3553
+    }, 
+    {
+        "Latitude": 50.9015, 
+        "StationName": "Calais Frethun", 
+        "CrsCode": "FRH", 
+        "Longitude": 1.81152
+    }, 
+    {
+        "Latitude": 45.6168981, 
+        "StationName": "Bourg St Maurice", 
+        "CrsCode": "XIB", 
+        "Longitude": 6.7734105
+    }
+]

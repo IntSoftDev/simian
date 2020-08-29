@@ -32,12 +32,12 @@ dependencies {
       implementation project(':domain')
 
     // for release library on jitpack
-    // implementation 'com.intsofdev:simian:0.2'
+
+   //  implementation 'com.intsoftdev:simian:0.2'
 
     // for local maven published library
-   // implementation 'com.github.azaka01:nre-client:1.3'
-   // implementation 'com.github.azaka01:domain:1.2'
-
+   // implementation 'com.intsoftdev:nre-client:0.2'
+   // implementation 'com.intsoftdev:domain:0.2'
 
     implementation kotlinlib
     implementation corektx
@@ -52,6 +52,7 @@ dependencies {
     implementation koinTest
     implementation rxAndroidLib
     implementation rxJavaLib
+    implementation timberLib
 
     testImplementation testjunit
     testImplementation mockitoKotlin

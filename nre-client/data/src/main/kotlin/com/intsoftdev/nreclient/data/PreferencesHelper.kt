@@ -1,4 +1,4 @@
-package com.intsoftdev.nreclient.cache
+package com.intsoftdev.nreclient.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -12,7 +12,7 @@ internal class PreferencesHelper(context: Context) {
     companion object {
         private val PREF_NRE_PACKAGE_NAME = "com.intsoftdev.nreclient"
 
-        private val PREF_KEY_LAST_CACHE = "last_cache"
+        private val PREF_KEY_LAST_UPDATE = "last_update"
     }
 
     private val stationPref: SharedPreferences
@@ -24,7 +24,7 @@ internal class PreferencesHelper(context: Context) {
     /**
      * Store and retrieve the last time data was cached
      */
-    var lastCacheTime: Long
-        get() = stationPref.getLong(PREF_KEY_LAST_CACHE, 0)
-        set(lastCache) = stationPref.edit().putLong(PREF_KEY_LAST_CACHE, lastCache).apply()
+    var lastUpdateTime: Long
+        get() = stationPref.getLong(PREF_KEY_LAST_UPDATE, 0)
+        set(lastUpdate) = stationPref.edit().putLong(PREF_KEY_LAST_UPDATE, lastUpdate).apply()
 }

@@ -1,6 +1,7 @@
 package com.intsoftdev.nreclient.data.repository.cache
 
 import com.intsoftdev.nreclient.data.model.StationEntity
+import com.intsoftdev.nreclient.data.model.VersionEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -12,8 +13,13 @@ import io.reactivex.Single
 internal interface StationsCacheDataStore {
 
     fun getAllStationsFromCache(): Observable<List<StationEntity>>
-    fun saveAllStationsToCache(stations: List<StationEntity>): Completable
+    fun saveAllStationsToCache(
+        version: VersionEntity,
+        stations: List<StationEntity>
+    ): Completable
+
+    fun getVersionFromCache(): Observable<VersionEntity>
     fun clearCachedStations(): Completable
-    fun isCached(): Single<Boolean>
-    fun getFromCache(stationName: String?, crsCode: String?) : Observable<StationEntity>
+    fun isEmpty(): Single<Boolean>
+    fun getFromCache(stationName: String?, crsCode: String?): Observable<StationEntity>
 }

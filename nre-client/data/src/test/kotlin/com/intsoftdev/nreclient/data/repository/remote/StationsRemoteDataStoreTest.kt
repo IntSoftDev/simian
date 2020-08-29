@@ -1,6 +1,7 @@
 package com.intsoftdev.nreclient.data.repository.remote
 
 import com.intsoftdev.nreclient.data.model.StationEntity
+import com.intsoftdev.nreclient.domain.StationModel
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
@@ -18,27 +19,27 @@ class StationsRemoteDataStoreTest {
     @Test
     fun `given remote stations when observed then completes`() {
         // given
-        stubStationsRemoteGetStations(Observable.just(makeStationEntityList(2)))
+        stubStationsRemoteGetStations(Observable.just(makeStationModelList(2)))
         // when
         val testObserver = cut.getAllStationsFromServer().test()
         // then
         testObserver.assertComplete()
     }
 
-    private fun stubStationsRemoteGetStations(single: Observable<List<StationEntity>>) {
+    private fun stubStationsRemoteGetStations(observable: Observable<List<StationModel>>) {
         whenever(stationsRemoteRepository.getAllStations())
-                .thenReturn(single)
+                .thenReturn(observable)
     }
 
-    private fun makeStationEntityList(count: Int): List<StationEntity> {
-        val stationEntities = mutableListOf<StationEntity>()
+    fun makeStationModelList(count: Int): List<StationModel> {
+        val stationModels = mutableListOf<StationModel>()
         repeat(count) {
-            stationEntities.add(makeStationEntity())
+            stationModels.add(makeStationModel())
         }
-        return stationEntities
+        return stationModels
     }
 
-    private fun makeStationEntity(): StationEntity {
-        return StationEntity("WTN", "Whitton", 52.4, 0.03)
+    fun makeStationModel(): StationModel {
+        return StationModel("name", "crs", 0.0, 0.0)
     }
 }

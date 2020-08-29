@@ -1,9 +1,12 @@
 package com.intsoftdev.railclient
 
+import com.intsoftdev.nreclient.domain.ReturnState
 import com.intsoftdev.nreclient.domain.StationModel
+import com.intsoftdev.nreclient.domain.StationsResult
+import com.intsoftdev.nreclient.domain.Version
 import com.intsoftdev.railclient.api.StationsClient
 import com.intsoftdev.railclient.di.Di
-import com.intsoftdev.railclient.domain.repository.interactor.GetStationsUseCase
+import com.intsoftdev.nreclient.domain.interactor.GetStationsUseCase
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
@@ -34,14 +37,22 @@ class StationsClientTest : StationsKoinTest() {
     @Test
     fun `given use case success then sdk returns expected`() {
         // Given
-        val dummyList = Observable.just(emptyList<StationModel>())
-        whenever(getStationsUseCase.getAllStations()).thenReturn(dummyList)
+        val result = Observable.just(ReturnState.Success(
+            StationsResult(
+                version = Version(version = 0.3, lastUpdated = 1L),
+                stations = emptyList<StationModel>()
+            )
+        ))
+
+        whenever(getStationsUseCase.getAllStations()).thenAnswer {
+            return@thenAnswer result
+        }
 
         // When
-        val stations = stationsClient.getAllStations()
+        val stationsResult = stationsClient.getAllStations()
 
         // Then
-        Assert.assertEquals(stations, dummyList)
+        Assert.assertEquals(stationsResult, result)
     }
 
     @Test(expected = Exception::class)
