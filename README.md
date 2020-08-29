@@ -1,12 +1,13 @@
 # Simian
 
-[![](https://jitpack.io/v/com.intsoftdev/simian.svg)](https://jitpack.io/#com.intsoftdev/simian)
+[![](https://jitpack.io/v/com.intsoftdev/simian.svg)](https://jitpack.io/#com.intsoftdev/simian)  &nbsp;![Android CI](https://github.com/IntSoftDev/simian/workflows/Android%20CI/badge.svg)
+
 
 An Android library for integrating with UK Train stations data
 
 ## About
 
-Simian requires at minimum Java 8 and Android API 21+.
+Simian is written in Kotlin and requires minimum Android API 21+.
 
 ## Get Started
 
