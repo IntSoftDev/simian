@@ -58,5 +58,11 @@
         "StationName": "Barcelona Sants",
         "CrsCode": "YJB",
         "Longitude": 2.1399
+    },
+    {
+        "Latitude": 55.672778,
+        "StationName": "Copenhagen",
+        "CrsCode": "DSB",
+        "Longitude": 12.564444
     }
 ]
