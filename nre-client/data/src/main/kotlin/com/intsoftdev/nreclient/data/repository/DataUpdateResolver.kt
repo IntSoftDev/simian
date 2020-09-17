@@ -13,7 +13,7 @@ enum class DataUpdateAction {
 internal class DataUpdateResolver(private val preferencesHelper: PreferencesHelper) {
 
     companion object {
-        private const val EXPIRATION_TIME_MS = (5 * 60 * 1000).toLong()
+        private const val EXPIRATION_TIME_MS = (12 * 60 * 60 * 1000).toLong() // 12 hrs
     }
 
     fun setLastUpdateTime(lastUpdate: Long) {
