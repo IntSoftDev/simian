@@ -9,8 +9,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         // override in individual modules when updating
-        versionCode 3
-        versionName "0.3"
+        versionCode 4
+        versionName "0.4"
     }
 
     compileOptions {
