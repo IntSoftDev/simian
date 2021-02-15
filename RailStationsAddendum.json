@@ -1,5 +1,11 @@
 [
     {
+        "Latitude": 52.44,
+        "StationName": "Bow Street",
+        "CrsCode": "BOW",
+        "Longitude": -4.03
+    },
+    {
         "Latitude": 54.7638,
         "StationName": "Horden",
         "CrsCode": "HRE",
