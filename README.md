@@ -5,6 +5,14 @@
 
 An Android library for integrating with UK Train stations data
 
+Simian connects to a Huxley-enabled web proxy that gets data from the NRE Darwin feed.
+
+The defaultweb proxy is https://onrails.azurewebsites.net/ (https://github.com/azaka01/Huxley2)
+
+Simian is currently used in the On Rails Android app https://play.google.com/store/apps/details?id=com.intsoftdev.nationalrail&hl=en_UK
+
+It will be deprecated in favour of a Kotlin multiplatform library under development https://github.com/IntSoftDev/NRStationsKMP
+
 ## About
 
 Simian is written in Kotlin and requires minimum Android API 21+.
