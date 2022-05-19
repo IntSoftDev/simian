@@ -1,5 +1,17 @@
 [
     {
+        "Latitude": 52.33415,
+        "StationName": "Soham",
+        "CrsCode": "SOJ",
+        "Longitude": 0.3277
+    },
+    {
+        "Latitude": 57.243611,
+        "StationName": "Kintore",
+        "CrsCode": "KTR",
+        "Longitude": -2.350278
+    },
+    {
         "Latitude": 54.7638,
         "StationName": "Horden",
         "CrsCode": "HRE",
