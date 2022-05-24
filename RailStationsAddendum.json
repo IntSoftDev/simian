@@ -1,5 +1,29 @@
 [
     {
+        "Latitude": 51.5061,
+        "StationName": "Canary Wharf (Elizabeth Line)",
+        "CrsCode": "CWX",
+        "Longitude": -0.01578
+    },
+    {
+        "Latitude": 51.491578,
+        "StationName": "Woolwich (Elizabeth Line)",
+        "Longitude": 0.071819,
+        "CrsCode": "WWC"
+    },
+    {
+        "Latitude": 51.5162,
+        "StationName": "Tottenham Court Road",
+        "Longitude": -0.1309,
+        "CrsCode": "TCR"
+    },
+    {
+        "Latitude": 51.509639,
+        "StationName": "Custom House",
+        "Longitude": 0.025894,
+        "CrsCode": "CUS"
+    },
+    {
         "Latitude": 52.33415,
         "StationName": "Soham",
         "CrsCode": "SOJ",
