@@ -1,5 +1,29 @@
 [
     {
+        "Latitude": 51.5061,
+        "StationName": "Canary Wharf (Elizabeth Line)",
+        "CrsCode": "CWX",
+        "Longitude": -0.01578
+    },
+    {
+        "Latitude": 51.491578,
+        "StationName": "Woolwich (Elizabeth Line)",
+        "Longitude": 0.071819,
+        "CrsCode": "WWC"
+    },
+    {
+        "Latitude": 51.5162,
+        "StationName": "Tottenham Court Road",
+        "Longitude": -0.1309,
+        "CrsCode": "TCR"
+    },
+    {
+        "Latitude": 51.509639,
+        "StationName": "Custom House",
+        "Longitude": 0.025894,
+        "CrsCode": "CUS"
+    },
+    {
         "Latitude": 52.33415,
         "StationName": "Soham",
         "CrsCode": "SOJ",
@@ -70,29 +94,5 @@
         "StationName": "Bourg St Maurice", 
         "CrsCode": "XIB", 
         "Longitude": 6.7734105
-    },
-    {
-        "latitude": 51.5061,
-        "Longitude": -0.01578,
-        "stationName": "Canary Wharf (Elizabeth Line)",
-        "crsCode": "CWX"
-    },
-    {
-        "latitude": 51.491578,
-        "longitude": 0.071819,
-        "stationName": "Woolwich (Elizabeth Line)",
-        "crsCode": "WWC"
-    },
-    {
-        "latitude": 51.5162,
-        "longitude": -0.1309,
-        "stationName": "Tottenham Court Road",
-        "crsCode": "TCR"
-    },
-    {
-        "latitude": 51.509639,
-        "longitude": 0.025894,
-        "stationName": "Custom House",
-        "crsCode": "CUS"
     }
 ]
