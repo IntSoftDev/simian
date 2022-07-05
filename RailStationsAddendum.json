@@ -48,6 +48,12 @@
         "Longitude": -1.3073
     },
     {
+        "Latitude": 53.393744,
+        "StationName": "Warrington West",
+        "CrsCode": "WAW",
+        "Longitude": -2.636929
+    },
+    {
         "Latitude": 50.835161,
         "StationName": "Bruxelles Midi",
         "CrsCode": "BXS",
@@ -94,29 +100,5 @@
         "StationName": "Bourg St Maurice", 
         "CrsCode": "XIB", 
         "Longitude": 6.7734105
-    },
-    {
-        "latitude": 51.5061,
-        "Longitude": -0.01578,
-        "stationName": "Canary Wharf (Elizabeth Line)",
-        "crsCode": "CWX"
-    },
-    {
-        "latitude": 51.491578,
-        "longitude": 0.071819,
-        "stationName": "Woolwich (Elizabeth Line)",
-        "crsCode": "WWC"
-    },
-    {
-        "latitude": 51.5162,
-        "longitude": -0.1309,
-        "stationName": "Tottenham Court Road",
-        "crsCode": "TCR"
-    },
-    {
-        "latitude": 51.509639,
-        "longitude": 0.025894,
-        "stationName": "Custom House",
-        "crsCode": "CUS"
     }
 ]
