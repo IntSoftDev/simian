@@ -1,5 +1,7 @@
 # Simian
 
+**This repo has been archived and superseded by a Kotlin Multiplatform version available here https://github.com/IntSoftDev/NRStationsKMP**
+
 [![](https://jitpack.io/v/com.intsoftdev/simian.svg)](https://jitpack.io/#com.intsoftdev/simian)  &nbsp;![Android CI](https://github.com/IntSoftDev/simian/workflows/Android%20CI/badge.svg)
 
 
